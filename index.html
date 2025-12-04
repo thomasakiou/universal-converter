@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UniCon - Universal Converter</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600;700;900&display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,0..200"
+    rel="stylesheet" />
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    /* Custom scrollbar for webkit */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--conv-bg);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #333;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+
+    :root {
+      /* Light Mode (New) */
+      --landing-primary: #14F195;
+      --landing-bg: #FFFFFF;
+      --landing-card: #F7FAFC;
+      --landing-secondary: #9945FF;
+      --landing-accent: #F4AB34;
+
+      --dash-bg: #F0FDF4;
+      --dash-primary: #16a34a;
+      --dash-accent: #00C9A7;
+      --dash-card: #FFFFFF;
+      --dash-border: #E2E8F0;
+
+      --conv-bg: #F7FAFC;
+      --conv-primary: #22C55E;
+      --conv-card: #FFFFFF;
+      --conv-accent: #38B2AC;
+      --conv-input: #EDF2F7;
+      --conv-border: #E2E8F0;
+
+      --text-primary: #1A202C;
+      --text-secondary: #4A5568;
+      --text-muted: #718096;
+      --text-inverse: #FFFFFF;
+
+      --input-bg: rgba(0, 0, 0, 0.05);
+      --border-subtle: rgba(0, 0, 0, 0.1);
+    }
+
+    .dark {
+      /* Dark Mode (Original) */
+      --landing-primary: #14F195;
+      --landing-bg: #0B0B0E;
+      --landing-card: #151518;
+      --landing-secondary: #9945FF;
+      --landing-accent: #F4AB34;
+
+      --dash-bg: #161022;
+      --dash-primary: #16a34a;
+      --dash-accent: #00C9A7;
+      --dash-card: rgba(255, 255, 255, 0.05);
+      --dash-border: #433b54;
+
+      --conv-bg: #1A202C;
+      --conv-primary: #22C55E;
+      --conv-card: #2D3748;
+      --conv-accent: #38B2AC;
+      --conv-input: rgba(255, 255, 255, 0.05);
+      --conv-border: rgba(255, 255, 255, 0.1);
+
+      --text-primary: #FFFFFF;
+      --text-secondary: #9CA3AF;
+      --text-muted: #A1A1AA;
+      --text-inverse: #000000;
+
+      --input-bg: rgba(255, 255, 255, 0.05);
+      --border-subtle: rgba(255, 255, 255, 0.2);
+    }
+  </style>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            // Landing Page Palette
+            'landing-primary': 'var(--landing-primary)',
+            'landing-bg': 'var(--landing-bg)',
+            'landing-card': 'var(--landing-card)',
+            'landing-secondary': 'var(--landing-secondary)',
+            'landing-accent': 'var(--landing-accent)',
+
+            // Dashboard Palette
+            'dash-bg': 'var(--dash-bg)',
+            'dash-primary': 'var(--dash-primary)',
+            'dash-accent': 'var(--dash-accent)',
+            'dash-card': 'var(--dash-card)',
+            'dash-border': 'var(--dash-border)',
+
+            // Converter Palette
+            'conv-bg': 'var(--conv-bg)',
+            'conv-primary': 'var(--conv-primary)',
+            'conv-card': 'var(--conv-card)',
+            'conv-accent': 'var(--conv-accent)',
+            'conv-input': 'var(--conv-input)',
+            'conv-border': 'var(--conv-border)',
+
+            // Shared
+            'text-primary': 'var(--text-primary)',
+            'text-secondary': 'var(--text-secondary)',
+            'text-muted': 'var(--text-muted)',
+            'text-inverse': 'var(--text-inverse)',
+
+            // Utilities
+            'input-bg': 'var(--input-bg)',
+            'border-subtle': 'var(--border-subtle)',
+          },
+          fontFamily: {
+            display: ["Poppins", "sans-serif"],
+            body: ["Inter", "sans-serif"],
+          },
+          boxShadow: {
+            'glow-primary': '0 0 25px rgba(20, 241, 149, 0.3)',
+            'glow-secondary': '0 0 25px rgba(153, 69, 255, 0.3)',
+          }
+        },
+      },
+    }
+  </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.6",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+
+</head>
+
+<body class="bg-landing-bg text-text-primary antialiased font-body">
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+
+</html>
